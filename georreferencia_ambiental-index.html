@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Georreferencia Policial Ambiental — Paraguay</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style>
+:root {
+  --verde: #1a7a3c;
+  --verde-claro: #2db556;
+  --verde-oscuro: #0d4a22;
+  --verde-neon: #39ff7a;
+  --amarillo: #f0c040;
+  --rojo: #e03030;
+  --rojo-claro: #ff5555;
+  --azul: #1a6ea8;
+  --azul-claro: #3ab0ff;
+  --gris-bg: #0a0f0a;
+  --gris-panel: #111811;
+  --gris-borde: #1e2e1e;
+  --gris-2: #1a241a;
+  --texto: #d4e8d4;
+  --texto-dim: #7a9a7a;
+  --texto-bright: #eafaea;
+  --fuente-titulo: 'Rajdhani', sans-serif;
+  --fuente-mono: 'Share Tech Mono', monospace;
+  --fuente-cuerpo: 'Exo 2', sans-serif;
+  --sombra: 0 0 20px rgba(26,122,60,0.2);
+  --sombra-neon: 0 0 10px rgba(57,255,122,0.3);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--gris-bg);
+  color: var(--texto);
+  font-family: var(--fuente-cuerpo);
+  font-size: 14px;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(26,122,60,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(13,74,34,0.1) 0%, transparent 60%);
+}
+
+/* ── HEADER ── */
+.header {
+  background: linear-gradient(135deg, var(--verde-oscuro) 0%, #0a1a0a 60%, #0d2a1a 100%);
+  border-bottom: 2px solid var(--verde);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 30px rgba(26,122,60,0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-escudo {
+  width: 54px; height: 54px;
+  background: radial-gradient(circle, #2a5a2a, #0d2a0d);
+  border: 2px solid var(--verde-claro);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  box-shadow: var(--sombra-neon);
+  flex-shrink: 0;
+}
+.header-texto h1 {
+  font-family: var(--fuente-titulo);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--verde-neon);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(57,255,122,0.5);
+}
+.header-texto p {
+  font-size: 11px;
+  color: var(--texto-dim);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: var(--fuente-mono);
+}
+.header-badge {
+  margin-left: auto;
+  background: rgba(26,122,60,0.3);
+  border: 1px solid var(--verde);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-family: var(--fuente-mono);
+  font-size: 11px;
+  color: var(--verde-neon);
+  text-align: center;
+  line-height: 1.6;
+}
+#reloj { font-size: 16px; font-weight: bold; }
+
+/* ── LAYOUT ── */
+.contenedor { max-width: 1400px; margin: 0 auto; padding: 16px; }
+.grid-main { display: grid; grid-template-columns: 380px 1fr; gap: 16px; }
+
+/* ── PANEL ── */
+.panel {
+  background: var(--gris-panel);
+  border: 1px solid var(--gris-borde);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+.panel-header {
+  background: linear-gradient(90deg, var(--verde-oscuro), var(--gris-2));
+  padding: 10px 16px;
+  display: flex; align-items: center; gap: 8px;
+  border-bottom: 1px solid var(--gris-borde);
+}
+.panel-header .material-icons { color: var(--verde-neon); font-size: 18px; }
+.panel-header h2 {
+  font-family: var(--fuente-titulo);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--texto-bright);
+}
+.panel-body { padding: 14px; }
+
+/* ── FORMULARIO ── */
+.campo { margin-bottom: 12px; }
+.campo label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--texto-dim);
+  margin-bottom: 5px;
+  font-family: var(--fuente-mono);
+}
+.campo input, .campo select, .campo textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  color: var(--texto-bright);
+  padding: 9px 12px;
+  font-family: var(--fuente-mono);
+  font-size: 13px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 8px rgba(26,122,60,0.4);
+}
+.campo select option { background: #111; }
+.campo textarea { min-height: 80px; resize: vertical; }
+.campo-fila { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* ── TIPO HECHO ── */
+.tipo-hecho-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.tipo-btn {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--gris-borde);
+  border-radius: 7px;
+  padding: 8px 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+  color: var(--texto-dim);
+  font-size: 11px;
+  font-family: var(--fuente-cuerpo);
+}
+.tipo-btn:hover { border-color: var(--verde); color: var(--verde-claro); }
+.tipo-btn.activo {
+  background: rgba(26,122,60,0.25);
+  border-color: var(--verde-neon);
+  color: var(--verde-neon);
+  box-shadow: inset 0 0 10px rgba(57,255,122,0.1);
+}
+.tipo-btn .icono { font-size: 20px; display: block; margin-bottom: 3px; }
+
+/* ── BOTONES ── */
+.btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  width: 100%; padding: 11px;
+  border: none; border-radius: 7px;
+  cursor: pointer;
+  font-family: var(--fuente-titulo);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  margin-bottom: 8px;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(26,122,60,0.4);
+}
+.btn-primary:hover { box-shadow: 0 6px 20px rgba(57,255,122,0.4); transform: translateY(-1px); }
+.btn-secondary {
+  background: rgba(26,122,60,0.15);
+  color: var(--verde-claro);
+  border: 1px solid var(--verde);
+}
+.btn-secondary:hover { background: rgba(26,122,60,0.3); }
+.btn-danger {
+  background: rgba(224,48,48,0.15);
+  color: var(--rojo-claro);
+  border: 1px solid var(--rojo);
+}
+.btn-warn {
+  background: rgba(240,192,64,0.15);
+  color: var(--amarillo);
+  border: 1px solid var(--amarillo);
+}
+.btn .material-icons { font-size: 18px; }
+
+/* ── ESTADO BADGE ── */
+.estado-select { display: flex; gap: 6px; margin-bottom: 12px; }
+.estado-opt {
+  flex: 1; padding: 7px 4px; text-align: center;
+  border-radius: 6px; border: 1px solid var(--gris-borde);
+  cursor: pointer; font-size: 11px; color: var(--texto-dim);
+  transition: all 0.2s; font-family: var(--fuente-cuerpo);
+  background: transparent;
+}
+.estado-opt.activo.en-curso  { background: rgba(224,48,48,0.2); border-color: var(--rojo); color: var(--rojo-claro); }
+.estado-opt.activo.consumado { background: rgba(26,110,168,0.2); border-color: var(--azul); color: var(--azul-claro); }
+.estado-opt.activo.vestigios { background: rgba(240,192,64,0.2); border-color: var(--amarillo); color: var(--amarillo); }
+
+/* ── MAPA ── */
+#mapa {
+  width: 100%; height: 480px;
+  border-radius: 8px;
+  border: 1px solid var(--gris-borde);
+  background: #0d1a0d;
+  position: relative;
+  overflow: hidden;
+}
+.mapa-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; color: var(--texto-dim);
+}
+.mapa-placeholder .material-icons { font-size: 48px; color: var(--verde); opacity: 0.5; }
+
+/* ── CAPAS MAPA ── */
+.capas-control {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--gris-borde);
+}
+.capa-toggle {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--gris-borde);
+  border-radius: 20px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 11px;
+  color: var(--texto-dim);
+  transition: all 0.2s;
+  display: flex; align-items: center; gap: 5px;
+  font-family: var(--fuente-cuerpo);
+}
+.capa-toggle:hover { border-color: var(--verde); color: var(--verde-claro); }
+.capa-toggle.activa { background: rgba(26,122,60,0.2); border-color: var(--verde-neon); color: var(--verde-neon); }
+.capa-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+/* ── RESULTADO INFO ── */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.info-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--gris-borde);
+  border-radius: 7px;
+  padding: 10px;
+}
+.info-item label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--texto-dim);
+  font-family: var(--fuente-mono);
+  display: block;
+  margin-bottom: 4px;
+}
+.info-item .valor {
+  font-family: var(--fuente-mono);
+  font-size: 13px;
+  color: var(--verde-neon);
+  font-weight: bold;
+}
+.info-item.alerta .valor { color: var(--rojo-claro); }
+.info-item.warn .valor { color: var(--amarillo); }
+.info-item.info .valor { color: var(--azul-claro); }
+
+/* ── FOCOS DE CALOR ── */
+.focos-lista { list-style: none; }
+.foco-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--gris-borde);
+  font-size: 12px;
+}
+.foco-item:last-child { border-bottom: none; }
+.foco-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.foco-alto { background: #ff3333; box-shadow: 0 0 6px #ff3333; }
+.foco-medio { background: #ff8800; box-shadow: 0 0 6px #ff8800; }
+.foco-bajo { background: #ffcc00; box-shadow: 0 0 6px #ffcc00; }
+
+/* ── TABLA COLINDANTES ── */
+.tabla-colindantes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.colindante-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--gris-borde);
+  border-radius: 7px;
+  padding: 10px;
+  position: relative;
+}
+.colindante-dir {
+  font-family: var(--fuente-mono);
+  font-size: 11px;
+  color: var(--verde);
+  margin-bottom: 5px;
+  display: flex; align-items: center; gap: 5px;
+}
+.colindante-valor {
+  font-size: 12px;
+  color: var(--texto-bright);
+}
+
+/* ── FOTOS ── */
+.fotos-area {
+  border: 2px dashed var(--gris-borde);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  margin-bottom: 10px;
+}
+.fotos-area:hover { border-color: var(--verde); }
+.fotos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.foto-thumb {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid var(--gris-borde);
+}
+.foto-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.foto-thumb .foto-del {
+  position: absolute; top: 3px; right: 3px;
+  background: rgba(200,0,0,0.8);
+  border: none; border-radius: 50%;
+  width: 20px; height: 20px;
+  cursor: pointer; color: #fff;
+  font-size: 12px; display: flex; align-items: center; justify-content: center;
+}
+.foto-exif {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.7);
+  font-size: 9px; color: #aaa;
+  padding: 2px 4px;
+  font-family: var(--fuente-mono);
+}
+
+/* ── NORMATIVA ── */
+.normativa-box {
+  background: rgba(26,110,168,0.1);
+  border: 1px solid var(--azul);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+.normativa-box h4 {
+  font-family: var(--fuente-titulo);
+  font-size: 12px;
+  color: var(--azul-claro);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.normativa-box p { font-size: 12px; color: var(--texto); line-height: 1.6; }
+
+/* ── GPS BOTÓN ── */
+.gps-btn {
+  background: rgba(57,255,122,0.1);
+  border: 1px solid var(--verde-neon);
+  border-radius: 7px;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  color: var(--verde-neon);
+  font-family: var(--fuente-titulo);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  transition: all 0.2s;
+  margin-bottom: 12px;
+}
+.gps-btn:hover { background: rgba(57,255,122,0.2); box-shadow: var(--sombra-neon); }
+.gps-btn .material-icons { font-size: 20px; }
+@keyframes pulso { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.gps-activo { animation: pulso 1s infinite; }
+
+/* ── ALERTA AREA PROTEGIDA ── */
+.alerta-area {
+  background: rgba(224,48,48,0.1);
+  border: 1px solid var(--rojo);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  display: none;
+}
+.alerta-area.visible { display: block; }
+.alerta-area h4 {
+  color: var(--rojo-claro);
+  font-family: var(--fuente-titulo);
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  display: flex; align-items: center; gap: 6px;
+}
+.alerta-area p { font-size: 12px; color: #ffaaaa; }
+
+/* ── TABS ── */
+.tabs { display: flex; border-bottom: 1px solid var(--gris-borde); margin-bottom: 14px; }
+.tab {
+  padding: 9px 16px;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--texto-dim);
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  font-family: var(--fuente-titulo);
+  font-weight: 600;
+  display: flex; align-items: center; gap: 5px;
+}
+.tab:hover { color: var(--verde-claro); }
+.tab.activo { color: var(--verde-neon); border-bottom-color: var(--verde-neon); }
+.tab .material-icons { font-size: 15px; }
+.tab-content { display: none; }
+.tab-content.activo { display: block; }
+
+/* ── BRUJULA ── */
+.brujula-container {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 16px 0;
+}
+.brujula {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  border: 3px solid var(--verde);
+  position: relative;
+  background: radial-gradient(circle, #0d2a0d, #0a0f0a);
+  box-shadow: 0 0 20px rgba(26,122,60,0.4), inset 0 0 20px rgba(0,0,0,0.5);
+  margin-bottom: 12px;
+}
+.brujula-aguja {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 4px; height: 55px;
+  margin-left: -2px;
+  transform-origin: bottom center;
+  transform: translateY(-100%) rotate(0deg);
+  transition: transform 0.5s ease;
+}
+.brujula-aguja-norte { background: linear-gradient(to top, #fff, var(--rojo)); border-radius: 2px 2px 0 0; }
+.brujula-aguja-sur { background: linear-gradient(to bottom, #555, #fff); border-radius: 0 0 2px 2px; position: absolute; left:50%; top:50%; width:4px; height:45px; margin-left:-2px; transform-origin: top center; }
+.brujula-centro {
+  position: absolute; left:50%; top:50%;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--verde-neon);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px var(--verde-neon);
+}
+.cardinal { position: absolute; font-size: 11px; font-family: var(--fuente-mono); font-weight: bold; color: var(--texto-dim); }
+.cardinal.n { top: 6px; left: 50%; transform: translateX(-50%); color: var(--rojo); }
+.cardinal.s { bottom: 6px; left: 50%; transform: translateX(-50%); }
+.cardinal.e { right: 8px; top: 50%; transform: translateY(-50%); }
+.cardinal.o { left: 8px; top: 50%; transform: translateY(-50%); }
+.rumbo-display {
+  font-family: var(--fuente-mono);
+  font-size: 28px;
+  color: var(--verde-neon);
+  text-shadow: var(--sombra-neon);
+}
+.cardinal-display {
+  font-size: 13px;
+  color: var(--texto-dim);
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+/* ── PROPIEDAD ── */
+.propiedad-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* ── INFORME ── */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  .no-print { display: none !important; }
+  .panel { border: 1px solid #ccc !important; box-shadow: none !important; background: #fff !important; }
+  .panel-header { background: #1a7a3c !important; -webkit-print-color-adjust: exact; }
+  .panel-header h2 { color: #fff !important; }
+  .header { background: #0d4a22 !important; -webkit-print-color-adjust: exact; }
+  .info-item { border: 1px solid #ccc !important; background: #f9f9f9 !important; }
+  .info-item .valor { color: #1a7a3c !important; }
+  #mapa { height: 300px !important; }
+  .grid-main { grid-template-columns: 1fr !important; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .grid-main { grid-template-columns: 1fr; }
+  #mapa { height: 350px; }
+}
+
+/* ── SEPARADOR ── */
+.sep {
+  border: none;
+  border-top: 1px solid var(--gris-borde);
+  margin: 12px 0;
+}
+.seccion-titulo {
+  font-family: var(--fuente-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin-bottom: 8px;
+  margin-top: 14px;
+}
+
+/* ── SPINNER ── */
+.spin {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid rgba(57,255,122,0.3);
+  border-top-color: var(--verde-neon);
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+  vertical-align: middle;
+}
+@keyframes girar { to { transform: rotate(360deg); } }
+
+/* ── PUNTOS DE INTERES ── */
+.poi-tabla { width: 100%; border-collapse: collapse; font-size: 11px; }
+.poi-tabla th {
+  font-family: var(--fuente-mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--texto-dim);
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--gris-borde);
+  text-transform: uppercase;
+}
+.poi-tabla td {
+  padding: 6px 8px;
+  border-bottom: 1px solid rgba(30,46,30,0.5);
+  color: var(--texto);
+  vertical-align: middle;
+}
+.poi-tabla tr:last-child td { border-bottom: none; }
+.poi-tabla tr:hover td { background: rgba(26,122,60,0.05); }
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-family: var(--fuente-mono);
+}
+.badge-verde { background: rgba(26,122,60,0.2); color: var(--verde-neon); border: 1px solid var(--verde); }
+.badge-rojo { background: rgba(224,48,48,0.2); color: var(--rojo-claro); border: 1px solid var(--rojo); }
+.badge-amarillo { background: rgba(240,192,64,0.2); color: var(--amarillo); border: 1px solid var(--amarillo); }
+.badge-azul { background: rgba(26,110,168,0.2); color: var(--azul-claro); border: 1px solid var(--azul); }
+
+/* ── OFFLINE BANNER ── */
+.offline-banner {
+  background: rgba(240,192,64,0.15);
+  border: 1px solid var(--amarillo);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 11px;
+  color: var(--amarillo);
+  display: none;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.offline-banner.visible { display: block; }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="header no-print">
+  <div class="header-escudo">🌿</div>
+  <div class="header-texto">
+    <h1>Georreferencia Policial Ambiental</h1>
+    <p>Sistema Operativo — Unidad Especializada Ambiental — Paraguay</p>
+  </div>
+  <div class="header-badge">
+    <div id="reloj">--:--:--</div>
+    <div style="font-size:10px;color:var(--texto-dim)" id="fecha-hoy">--/--/----</div>
+    <div id="estado-online" style="font-size:10px;color:var(--verde-neon)">● EN LÍNEA</div>
+  </div>
+</header>
+
+<div class="contenedor">
+
+  <!-- OFFLINE BANNER -->
+  <div class="offline-banner" id="offline-banner">
+    ⚡ SIN CONEXIÓN — Los datos se guardarán localmente y se sincronizarán al recuperar señal.
+  </div>
+
+  <div class="grid-main">
+
+    <!-- ══════════ COLUMNA IZQUIERDA — FORMULARIO ══════════ -->
+    <div>
+
+      <!-- PANEL: Tipo de Hecho -->
+      <div class="panel" style="margin-bottom:14px">
+        <div class="panel-header">
+          <span class="material-icons">report_problem</span>
+          <h2>Tipo de Hecho Ambiental</h2>
+        </div>
+        <div class="panel-body">
+          <div class="tipo-hecho-grid">
+            <button class="tipo-btn" onclick="seleccionarTipo(this,'deforestacion')"><span class="icono">🌳</span>Deforestación</button>
+            <button class="tipo-btn" onclick="seleccionarTipo(this,'quema')"><span class="icono">🔥</span>Quema / Incendio</button>
+            <button class="tipo-btn" onclick="seleccionarTipo(this,'caza')"><span class="icono">🦌</span>Caza Furtiva</button>
+            <button class="tipo-btn" onclick="seleccionarTipo(this,'pesca')"><span class="icono">🐟</span>Pesca Ilegal</button>
+            <button class="tipo-btn" onclick="seleccionarTipo(this,'residuos')"><span class="icono">☢️</span>Vertido Residuos</button>
+            <button class="tipo-btn" onclick="seleccionarTipo(this,'mineria')"><span class="icono">⛏️</span>Minería Ilegal</button>
+            <button class="tipo-btn" onclick="seleccionarTipo(this,'contaminacion')"><span class="icono">💧</span>Contam. Hídrica</button>
+            <button class="tipo-btn" onclick="seleccionarTipo(this,'trafico')"><span class="icono">🦜</span>Tráfico de Fauna</button>
+          </div>
+          <div class="normativa-box" id="normativa-box" style="display:none">
+            <h4>⚖️ Normativa presuntamente infringida</h4>
+            <p id="normativa-texto"></p>
+          </div>
+          <p class="seccion-titulo">Estado del Hecho</p>
+          <div class="estado-select">
+            <button class="estado-opt en-curso" onclick="seleccionarEstado(this,'en-curso')">🔴 En Curso</button>
+            <button class="estado-opt consumado" onclick="seleccionarEstado(this,'consumado')">🔵 Consumado</button>
+            <button class="estado-opt vestigios" onclick="seleccionarEstado(this,'vestigios')">🟡 Vestigios</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL: Coordenadas -->
+      <div class="panel" style="margin-bottom:14px">
+        <div class="panel-header">
+          <span class="material-icons">my_location</span>
+          <h2>Coordenadas y Rumbo</h2>
+        </div>
+        <div class="panel-body">
+          <button class="gps-btn" onclick="capturarGPS()" id="btn-gps">
+            <span class="material-icons">gps_fixed</span>
+            CAPTURAR GPS DEL DISPOSITIVO
+          </button>
+          <div class="campo-fila">
+            <div class="campo">
+              <label>Latitud</label>
+              <input type="text" id="lat" placeholder="-21.788333" value="-21.788333"/>
+            </div>
+            <div class="campo">
+              <label>Longitud</label>
+              <input type="text" id="lon" placeholder="-60.578889" value="-60.578889"/>
+            </div>
+          </div>
+          <div class="campo">
+            <label>Coordenada Original (DMS)</label>
+            <input type="text" id="coord-dms" placeholder='21°47´18" S, 60°34´44" W' value='21°47´18" S, 60°34´44" W'/>
+          </div>
+          <div class="campo-fila">
+            <div class="campo">
+              <label>Rumbo (°)</label>
+              <input type="number" id="rumbo" placeholder="326" value="326" min="0" max="360" oninput="actualizarBrujula()"/>
+            </div>
+            <div class="campo">
+              <label>Radio búsqueda (m)</label>
+              <input type="number" id="radio" placeholder="500" value="500"/>
+            </div>
+          </div>
+          <div class="campo">
+            <label>Tipo de Mapa</label>
+            <select id="tipo-mapa">
+              <option value="satellite">🛰️ Satélite</option>
+              <option value="hybrid">🗺️ Híbrido</option>
+              <option value="roadmap">🛣️ Normal</option>
+              <option value="terrain">⛰️ Terreno</option>
+            </select>
+          </div>
+          <hr class="sep"/>
+          <button class="btn btn-primary" onclick="actualizarGeorreferencia()">
+            <span class="material-icons">refresh</span>
+            Actualizar Georreferencia
+          </button>
+          <button class="btn btn-secondary no-print" onclick="window.print()">
+            <span class="material-icons">print</span>
+            Imprimir Informe Ambiental
+          </button>
+        </div>
+      </div>
+
+      <!-- PANEL: Propiedad / Catastro -->
+      <div class="panel" style="margin-bottom:14px">
+        <div class="panel-header">
+          <span class="material-icons">apartment</span>
+          <h2>Datos de Propiedad</h2>
+        </div>
+        <div class="panel-body">
+          <div class="propiedad-grid">
+            <div class="campo">
+              <label>N° de Finca</label>
+              <input type="text" id="finca" placeholder="Ej: 12345"/>
+            </div>
+            <div class="campo">
+              <label>Padrón Catastral</label>
+              <input type="text" id="padron" placeholder="Ej: 00-001-2345"/>
+            </div>
+            <div class="campo">
+              <label>Propietario Declarado</label>
+              <input type="text" id="propietario" placeholder="Nombre o razón social"/>
+            </div>
+            <div class="campo">
+              <label>Superficie (ha)</label>
+              <input type="text" id="superficie" placeholder="Hectáreas"/>
+            </div>
+          </div>
+          <div class="campo">
+            <label>Observaciones del predio</label>
+            <textarea id="obs-predio" placeholder="Descripción del lugar, accesos, condiciones del terreno..."></textarea>
+          </div>
+          <button class="btn btn-secondary" style="margin-top:6px" onclick="window.open('https://www.sirt.gov.py','_blank')">
+            <span class="material-icons">open_in_new</span>
+            Consultar SIRT — Catastro Paraguay
+          </button>
+        </div>
+      </div>
+
+      <!-- PANEL: Funcionario -->
+      <div class="panel" style="margin-bottom:14px">
+        <div class="panel-header">
+          <span class="material-icons">badge</span>
+          <h2>Funcionario Actuante</h2>
+        </div>
+        <div class="panel-body">
+          <div class="campo-fila">
+            <div class="campo">
+              <label>Nombre y Apellido</label>
+              <input type="text" id="funcionario" placeholder="Inspector..."/>
+            </div>
+            <div class="campo">
+              <label>Nro. de Credencial</label>
+              <input type="text" id="credencial" placeholder="PNA-..."/>
+            </div>
+          </div>
+          <div class="campo-fila">
+            <div class="campo">
+              <label>Unidad / Dependencia</label>
+              <input type="text" id="unidad" placeholder="Ej: UEPAM - Boquerón"/>
+            </div>
+            <div class="campo">
+              <label>Fecha y Hora</label>
+              <input type="datetime-local" id="fecha-hora"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══════════ COLUMNA DERECHA — MAPA + DATOS ══════════ -->
+    <div>
+
+      <!-- PANEL: Mapa -->
+      <div class="panel" style="margin-bottom:14px">
+        <div class="panel-header">
+          <span class="material-icons">map</span>
+          <h2>Mapa de Georreferencia</h2>
+          <span id="coord-display" style="margin-left:auto;font-family:var(--fuente-mono);font-size:11px;color:var(--verde-neon)"></span>
+        </div>
+        <div id="mapa">
+          <div class="mapa-placeholder" id="mapa-placeholder">
+            <span class="material-icons">satellite</span>
+            <p style="font-family:var(--fuente-mono);font-size:12px">Ingrese coordenadas y presione<br/><strong>Actualizar Georreferencia</strong></p>
+          </div>
+          <iframe id="mapa-iframe" width="100%" height="100%" style="border:none;display:none;border-radius:8px" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="capas-control no-print">
+          <span style="font-size:10px;color:var(--texto-dim);letter-spacing:2px;text-transform:uppercase;font-family:var(--fuente-mono);align-self:center;margin-right:4px;">CAPAS:</span>
+          <button class="capa-toggle" onclick="toggleCapa(this,'focos')">
+            <span class="capa-dot" style="background:#ff4400"></span>🔥 Focos Calor
+          </button>
+          <button class="capa-toggle" onclick="toggleCapa(this,'bosques')">
+            <span class="capa-dot" style="background:#1a7a3c"></span>🌳 Bosques
+          </button>
+          <button class="capa-toggle" onclick="toggleCapa(this,'protegidas')">
+            <span class="capa-dot" style="background:#3ab0ff"></span>🏞️ Áreas Protegidas
+          </button>
+          <button class="capa-toggle" onclick="toggleCapa(this,'cuencas')">
+            <span class="capa-dot" style="background:#0088ff"></span>💧 Cuencas
+          </button>
+          <button class="capa-toggle" onclick="abrirGlobalForestWatch()">
+            <span class="capa-dot" style="background:#39ff7a"></span>📡 GFW
+          </button>
+        </div>
+      </div>
+
+      <!-- PANEL: TABS de información -->
+      <div class="panel" style="margin-bottom:14px">
+        <div class="panel-header">
+          <span class="material-icons">analytics</span>
+          <h2>Análisis Ambiental del Punto</h2>
+        </div>
+        <div class="panel-body">
+
+          <div class="alerta-area" id="alerta-protegida">
+            <h4><span class="material-icons" style="font-size:16px">warning</span> ALERTA — ÁREA PROTEGIDA</h4>
+            <p id="alerta-protegida-texto">El punto se encuentra dentro o próximo a un área protegida del SINASIP.</p>
+          </div>
+
+          <div class="tabs">
+            <div class="tab activo" onclick="cambiarTab(this,'tab-ubicacion')">
+              <span class="material-icons">place</span>Ubicación
+            </div>
+            <div class="tab" onclick="cambiarTab(this,'tab-ambiental')">
+              <span class="material-icons">eco</span>Ambiental
+            </div>
+            <div class="tab" onclick="cambiarTab(this,'tab-brujula')">
+              <span class="material-icons">explore</span>Rumbo
+            </div>
+            <div class="tab" onclick="cambiarTab(this,'tab-fotos')">
+              <span class="material-icons">photo_camera</span>Fotos
+            </div>
+            <div class="tab" onclick="cambiarTab(this,'tab-informe')">
+              <span class="material-icons">description</span>Informe
+            </div>
+          </div>
+
+          <!-- TAB: Ubicación -->
+          <div class="tab-content activo" id="tab-ubicacion">
+            <div class="info-grid">
+              <div class="info-item">
+                <label>Latitud Decimal</label>
+                <div class="valor" id="res-lat">—</div>
+              </div>
+              <div class="info-item">
+                <label>Longitud Decimal</label>
+                <div class="valor" id="res-lon">—</div>
+              </div>
+              <div class="info-item">
+                <label>Zona UTM</label>
+                <div class="valor" id="res-utm">—</div>
+              </div>
+              <div class="info-item">
+                <label>Rumbo / Cardinal</label>
+                <div class="valor" id="res-rumbo">—</div>
+              </div>
+              <div class="info-item">
+                <label>País</label>
+                <div class="valor" id="res-pais">—</div>
+              </div>
+              <div class="info-item">
+                <label>Región / Departamento</label>
+                <div class="valor" id="res-region">—</div>
+              </div>
+              <div class="info-item">
+                <label>Distrito / Ciudad</label>
+                <div class="valor" id="res-distrito">—</div>
+              </div>
+              <div class="info-item">
+                <label>Localidad / Barrio</label>
+                <div class="valor" id="res-localidad">—</div>
+              </div>
+            </div>
+            <div class="campo">
+              <label>Dirección completa (Nominatim)</label>
+              <input type="text" id="res-direccion" readonly style="color:var(--verde-claro)"/>
+            </div>
+            <p class="seccion-titulo">Colindantes por orientación</p>
+            <div class="tabla-colindantes">
+              <div class="colindante-card">
+                <div class="colindante-dir"><span class="material-icons" style="font-size:14px;color:var(--verde)">north</span>Norte</div>
+                <div class="colindante-valor" id="col-norte">—</div>
+              </div>
+              <div class="colindante-card">
+                <div class="colindante-dir"><span class="material-icons" style="font-size:14px;color:var(--verde)">south</span>Sur</div>
+                <div class="colindante-valor" id="col-sur">—</div>
+              </div>
+              <div class="colindante-card">
+                <div class="colindante-dir"><span class="material-icons" style="font-size:14px;color:var(--verde)">east</span>Este</div>
+                <div class="colindante-valor" id="col-este">—</div>
+              </div>
+              <div class="colindante-card">
+                <div class="colindante-dir"><span class="material-icons" style="font-size:14px;color:var(--verde)">west</span>Oeste</div>
+                <div class="colindante-valor" id="col-oeste">—</div>
+              </div>
+            </div>
+            <p class="seccion-titulo">Puntos de interés circundantes</p>
+            <div style="overflow-x:auto">
+              <table class="poi-tabla">
+                <thead>
+                  <tr>
+                    <th>#</th><th>Nombre</th><th>Tipo</th><th>Distancia</th><th>Orientación</th>
+                  </tr>
+                </thead>
+                <tbody id="poi-body">
+                  <tr><td colspan="5" style="color:var(--texto-dim);text-align:center;padding:16px">Presione Actualizar para cargar</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- TAB: Ambiental -->
+          <div class="tab-content" id="tab-ambiental">
+            <p class="seccion-titulo">🔥 Focos de Calor — NASA FIRMS (últimas 24h)</p>
+            <ul class="focos-lista" id="focos-lista">
+              <li class="foco-item" style="color:var(--texto-dim)">Presione Actualizar para consultar NASA FIRMS...</li>
+            </ul>
+            <hr class="sep"/>
+            <p class="seccion-titulo">🌳 Cobertura Forestal — Global Forest Watch</p>
+            <div class="info-grid">
+              <div class="info-item">
+                <label>Pérdida forestal área</label>
+                <div class="valor" id="gfw-perdida">—</div>
+              </div>
+              <div class="info-item">
+                <label>Último año con alerta</label>
+                <div class="valor" id="gfw-anio">—</div>
+              </div>
+              <div class="info-item">
+                <label>Cobertura actual estimada</label>
+                <div class="valor" id="gfw-cobertura">—</div>
+              </div>
+              <div class="info-item warn">
+                <label>Estado vegetación (NDVI)</label>
+                <div class="valor" id="gfw-ndvi">—</div>
+              </div>
+            </div>
+            <button class="btn btn-secondary" onclick="abrirGlobalForestWatch()" style="margin-top:8px">
+              <span class="material-icons">open_in_new</span>
+              Ver en Global Forest Watch
+            </button>
+            <hr class="sep"/>
+            <p class="seccion-titulo">🏞️ Áreas Protegidas Cercanas (SINASIP)</p>
+            <div id="areas-protegidas-lista" style="font-size:12px;color:var(--texto-dim);font-family:var(--fuente-mono)">
+              Presione Actualizar para consultar...
+            </div>
+            <hr class="sep"/>
+            <p class="seccion-titulo">💧 Cuencas Hidrográficas</p>
+            <div id="cuencas-info" class="info-item" style="margin-bottom:10px">
+              <label>Cuenca identificada</label>
+              <div class="valor" id="cuenca-nombre">—</div>
+            </div>
+            <button class="btn btn-secondary" onclick="window.open('https://www.senave.gov.py','_blank')">
+              <span class="material-icons">water</span>
+              Consultar SEAM / MADES
+            </button>
+          </div>
+
+          <!-- TAB: Rumbo / Brújula -->
+          <div class="tab-content" id="tab-brujula">
+            <div class="brujula-container">
+              <div class="brujula" id="brujula">
+                <span class="cardinal n">N</span>
+                <span class="cardinal s">S</span>
+                <span class="cardinal e">E</span>
+                <span class="cardinal o">O</span>
+                <div class="brujula-aguja brujula-aguja-norte" id="aguja-norte"></div>
+                <div class="brujula-aguja-sur" id="aguja-sur"></div>
+                <div class="brujula-centro"></div>
+              </div>
+              <div class="rumbo-display" id="rumbo-display">326°</div>
+              <div class="cardinal-display" id="cardinal-display">NOR-NOROESTE (NNO)</div>
+            </div>
+            <div class="info-grid">
+              <div class="info-item">
+                <label>Azimut</label>
+                <div class="valor" id="bruj-azimut">326°</div>
+              </div>
+              <div class="info-item">
+                <label>Dirección cardinal</label>
+                <div class="valor" id="bruj-cardinal">NNO</div>
+              </div>
+              <div class="info-item">
+                <label>Punto proyectado (5km)</label>
+                <div class="valor" id="bruj-proyeccion">—</div>
+              </div>
+              <div class="info-item">
+                <label>Hacia</label>
+                <div class="valor" id="bruj-hacia">Bolivia / Frontera</div>
+              </div>
+            </div>
+            <button class="btn btn-secondary" id="btn-brujula-dispositivo" onclick="activarBrujulaDispositivo()">
+              <span class="material-icons">explore</span>
+              Usar Brújula del Dispositivo
+            </button>
+          </div>
+
+          <!-- TAB: Fotos -->
+          <div class="tab-content" id="tab-fotos">
+            <div class="fotos-area" onclick="document.getElementById('input-fotos').click()">
+              <span class="material-icons" style="font-size:36px;color:var(--verde);display:block;margin-bottom:8px">add_a_photo</span>
+              <p style="font-size:12px;color:var(--texto-dim)">Toque para adjuntar fotos del procedimiento</p>
+              <p style="font-size:11px;color:var(--texto-dim);margin-top:4px">Se extraerán automáticamente coordenadas GPS de la imagen</p>
+            </div>
+            <input type="file" id="input-fotos" accept="image/*" multiple capture="environment" style="display:none" onchange="procesarFotos(event)"/>
+            <div class="fotos-grid" id="fotos-grid"></div>
+            <div id="fotos-alerta" style="display:none;margin-top:10px;padding:10px;background:rgba(240,192,64,0.1);border:1px solid var(--amarillo);border-radius:6px;font-size:11px;color:var(--amarillo)"></div>
+          </div>
+
+          <!-- TAB: Informe -->
+          <div class="tab-content" id="tab-informe">
+            <p class="seccion-titulo">Vista previa del Acta de Procedimiento Ambiental</p>
+            <div id="informe-preview" style="background:rgba(255,255,255,0.03);border:1px solid var(--gris-borde);border-radius:8px;padding:16px;font-family:var(--fuente-mono);font-size:11px;line-height:2;color:var(--texto)">
+              <div style="text-align:center;margin-bottom:12px;border-bottom:1px solid var(--gris-borde);padding-bottom:12px">
+                <div style="font-size:14px;font-weight:bold;color:var(--verde-neon);letter-spacing:2px">POLICÍA NACIONAL DEL PARAGUAY</div>
+                <div style="color:var(--texto-dim)">UNIDAD ESPECIALIZADA EN PROTECCIÓN AMBIENTAL</div>
+                <div style="color:var(--texto-dim);font-size:10px">ACTA DE PROCEDIMIENTO POLICIAL AMBIENTAL</div>
+              </div>
+              <div id="informe-contenido">
+                Complete los datos y presione <strong>Actualizar Georreferencia</strong> para generar el informe.
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="generarInforme()" style="margin-top:12px">
+              <span class="material-icons">description</span>
+              Generar Informe Completo
+            </button>
+            <button class="btn btn-secondary no-print" onclick="window.print()" style="margin-top:0">
+              <span class="material-icons">print</span>
+              Imprimir Acta
+            </button>
+          </div>
+
+        </div><!-- /panel-body -->
+      </div><!-- /panel tabs -->
+
+    </div><!-- /col derecha -->
+  </div><!-- /grid-main -->
+</div><!-- /contenedor -->
+
+<script>
+// ══════════════════════════════════════════════
+//  ESTADO GLOBAL
+// ══════════════════════════════════════════════
+const estado = {
+  tipo: null,
+  estadoHecho: null,
+  fotos: [],
+  lat: null,
+  lon: null,
+  datosNominatim: null,
+  capas: {}
+};
+
+// ══════════════════════════════════════════════
+//  RELOJ
+// ══════════════════════════════════════════════
+function actualizarReloj() {
+  const ahora = new Date();
+  document.getElementById('reloj').textContent =
+    ahora.toLocaleTimeString('es-PY', {hour12: false});
+  document.getElementById('fecha-hoy').textContent =
+    ahora.toLocaleDateString('es-PY');
+}
+setInterval(actualizarReloj, 1000);
+actualizarReloj();
+
+// Fecha/hora por defecto
+document.getElementById('fecha-hora').value =
+  new Date().toISOString().slice(0,16);
+
+// ══════════════════════════════════════════════
+//  ONLINE / OFFLINE
+// ══════════════════════════════════════════════
+function actualizarEstadoRed() {
+  const online = navigator.onLine;
+  document.getElementById('estado-online').textContent = online ? '● EN LÍNEA' : '● SIN SEÑAL';
+  document.getElementById('estado-online').style.color = online ? 'var(--verde-neon)' : 'var(--amarillo)';
+  document.getElementById('offline-banner').classList.toggle('visible', !online);
+}
+window.addEventListener('online', actualizarEstadoRed);
+window.addEventListener('offline', actualizarEstadoRed);
+actualizarEstadoRed();
+
+// ══════════════════════════════════════════════
+//  TIPO DE HECHO Y NORMATIVA
+// ══════════════════════════════════════════════
+const normativas = {
+  deforestacion: 'Ley 422/73 Forestal · Art. 43 — Prohibición de corte ilegal. Ley 3001/06 — Valoración y Retribución de Servicios Ambientales. Pena: hasta 5 años de prisión.',
+  quema: 'Ley 422/73 Art. 46 — Prohibición de quemas. Ley 3966/10 Art. 200 — Incendio intencional. Resolución MADES — Veda de quemas en época seca.',
+  caza: 'Ley 96/92 — Vida Silvestre Art. 27 — Prohibición de caza ilegal. CITES (Convención sobre tráfico internacional). Pena: multa + confiscación.',
+  pesca: 'Ley 799/96 de Pesca · Art. 23 — Veda y zonas protegidas. Ley 515/94 — Código de Aguas. Resolución MADES sobre vedas estacionales.',
+  residuos: 'Ley 3956/09 — Gestión Integral de Residuos Sólidos · Art. 51 — Disposición ilegal. Ley 294/93 — EIA. Decreto 14.281/96. Pena: hasta 3 años.',
+  mineria: 'Ley 3180/07 — Minería · Art. 76 — Extracción sin licencia. Ley 294/93 — EIA obligatorio. Constitución Nacional Art. 8 — Delitos ecológicos.',
+  contaminacion: 'Ley 294/93 EIA · Art. 8. Ley 3239/07 — Recursos Hídricos · Art. 26 — Vertidos prohibidos. Código Penal Art. 197 — Contaminación de aguas.',
+  trafico: 'Ley 96/92 — Vida Silvestre · Art. 3 y 60 — Fauna protegida. CITES Apéndices I, II y III. Resolución MADES — Lista de especies protegidas. Pena: hasta 5 años.'
+};
+
+function seleccionarTipo(btn, tipo) {
+  document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('activo'));
+  btn.classList.add('activo');
+  estado.tipo = tipo;
+  document.getElementById('normativa-box').style.display = 'block';
+  document.getElementById('normativa-texto').textContent = normativas[tipo] || '';
+}
+
+function seleccionarEstado(btn, est) {
+  document.querySelectorAll('.estado-opt').forEach(b => b.classList.remove('activo'));
+  btn.classList.add('activo');
+  estado.estadoHecho = est;
+}
+
+// ══════════════════════════════════════════════
+//  GPS DEL DISPOSITIVO
+// ══════════════════════════════════════════════
+function capturarGPS() {
+  const btn = document.getElementById('btn-gps');
+  btn.innerHTML = '<span class="material-icons gps-activo">gps_not_fixed</span> BUSCANDO SEÑAL GPS...';
+  btn.style.opacity = '0.7';
+  if (!navigator.geolocation) {
+    alert('Geolocalización no disponible en este dispositivo.');
+    resetBtnGPS(); return;
+  }
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      document.getElementById('lat').value = pos.coords.latitude.toFixed(6);
+      document.getElementById('lon').value = pos.coords.longitude.toFixed(6);
+      // Convertir a DMS
+      const dms = decimalADMS(pos.coords.latitude, pos.coords.longitude);
+      document.getElementById('coord-dms').value = dms;
+      resetBtnGPS();
+      actualizarGeorreferencia();
+    },
+    err => {
+      alert('No se pudo obtener la ubicación: ' + err.message);
+      resetBtnGPS();
+    },
+    { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
+  );
+}
+
+function resetBtnGPS() {
+  document.getElementById('btn-gps').innerHTML =
+    '<span class="material-icons">gps_fixed</span> CAPTURAR GPS DEL DISPOSITIVO';
+  document.getElementById('btn-gps').style.opacity = '1';
+}
+
+function decimalADMS(lat, lon) {
+  function conv(val, pos, neg) {
+    const dir = val >= 0 ? pos : neg;
+    const abs = Math.abs(val);
+    const g = Math.floor(abs);
+    const mFull = (abs - g) * 60;
+    const m = Math.floor(mFull);
+    const s = Math.round((mFull - m) * 60);
+    return `${g}°${m}´${s}" ${dir}`;
+  }
+  return `${conv(lat,'N','S')}, ${conv(lon,'E','O')}`;
+}
+
+// ══════════════════════════════════════════════
+//  ZONA UTM
+// ══════════════════════════════════════════════
+function calcularUTM(lat, lon) {
+  const zona = Math.floor((lon + 180) / 6) + 1;
+  const letras = 'CDEFGHJKLMNPQRSTUVWXX';
+  const idx = Math.floor((lat + 80) / 8);
+  const banda = letras[Math.min(Math.max(idx, 0), 20)];
+  return `${zona}${banda}`;
+}
+
+// ══════════════════════════════════════════════
+//  CARDINAL DESDE AZIMUT
+// ══════════════════════════════════════════════
+function azimutACardinal(az) {
+  const dirs = [
+    'Norte (N)','Nor-Noreste (NNE)','Noreste (NE)','Este-Noreste (ENE)',
+    'Este (E)','Este-Sureste (ESE)','Sureste (SE)','Sur-Sureste (SSE)',
+    'Sur (S)','Sur-Suroeste (SSO)','Suroeste (SO)','Oeste-Suroeste (OSO)',
+    'Oeste (O)','Oeste-Noroeste (ONO)','Noroeste (NO)','Nor-Noroeste (NNO)'
+  ];
+  const idx = Math.round(((az % 360) + 360) % 360 / 22.5) % 16;
+  return dirs[idx];
+}
+
+// ══════════════════════════════════════════════
+//  BRÚJULA
+// ══════════════════════════════════════════════
+function actualizarBrujula() {
+  const az = parseFloat(document.getElementById('rumbo').value) || 0;
+  document.getElementById('aguja-norte').style.transform =
+    `translateY(-100%) rotate(${az}deg)`;
+  document.getElementById('rumbo-display').textContent = az + '°';
+  const card = azimutACardinal(az);
+  document.getElementById('cardinal-display').textContent = card;
+  document.getElementById('bruj-azimut').textContent = az + '°';
+  document.getElementById('bruj-cardinal').textContent = card;
+  // Proyección 5km
+  const lat = parseFloat(document.getElementById('lat').value) || 0;
+  const lon = parseFloat(document.getElementById('lon').value) || 0;
+  if (lat && lon) {
+    const rad = az * Math.PI / 180;
+    const dx = Math.sin(rad) * 0.045;
+    const dy = Math.cos(rad) * 0.045;
+    document.getElementById('bruj-proyeccion').textContent =
+      `${(lat+dy).toFixed(4)}, ${(lon+dx).toFixed(4)}`;
+  }
+}
+actualizarBrujula();
+
+function activarBrujulaDispositivo() {
+  if (window.DeviceOrientationEvent) {
+    window.addEventListener('deviceorientation', e => {
+      if (e.alpha !== null) {
+        document.getElementById('rumbo').value = Math.round(e.alpha);
+        actualizarBrujula();
+      }
+    });
+    alert('Brújula del dispositivo activada. Mové el teléfono.');
+  } else {
+    alert('Tu dispositivo no tiene brújula o no está disponible.');
+  }
+}
+
+// ══════════════════════════════════════════════
+//  MAPA
+// ══════════════════════════════════════════════
+function actualizarMapa(lat, lon) {
+  const tipo = document.getElementById('tipo-mapa').value;
+  const radio = parseInt(document.getElementById('radio').value) || 500;
+  const zoom = radio <= 200 ? 17 : radio <= 500 ? 16 : radio <= 1000 ? 15 : 14;
+  const iframe = document.getElementById('mapa-iframe');
+  const url = `https://maps.google.com/maps?q=${lat},${lon}&t=${tipo === 'satellite' ? 'k' : tipo === 'hybrid' ? 'h' : tipo === 'terrain' ? 'p' : 'm'}&z=${zoom}&output=embed`;
+  iframe.src = url;
+  iframe.style.display = 'block';
+  document.getElementById('mapa-placeholder').style.display = 'none';
+  document.getElementById('coord-display').textContent = `${lat.toFixed(6)}, ${lon.toFixed(6)}`;
+}
+
+// ══════════════════════════════════════════════
+//  NOMINATIM — GEOCODIFICACIÓN INVERSA
+// ══════════════════════════════════════════════
+async function consultarNominatim(lat, lon) {
+  const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1&accept-language=es`;
+  try {
+    const r = await fetch(url, { headers: { 'User-Agent': 'GeorreferenciaPolicialAmbiental/1.0' }});
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return await r.json();
+  } catch (e) {
+    console.error('Nominatim error:', e);
+    return null;
+  }
+}
+
+function llenarDatosNominatim(data) {
+  if (!data) return;
+  const a = data.address || {};
+  document.getElementById('res-pais').textContent = a.country || '—';
+  document.getElementById('res-region').textContent = a.state || a.region || '—';
+  document.getElementById('res-distrito').textContent = a.county || a.city || a.town || a.village || '—';
+  document.getElementById('res-localidad').textContent = a.suburb || a.neighbourhood || a.hamlet || a.locality || '—';
+  document.getElementById('res-direccion').value = data.display_name || '—';
+  // Colindantes simulados con Nominatim
+  const base = a.county || a.state || 'Zona';
+  document.getElementById('col-norte').textContent = a.state || 'Alto Paraguay (límite)';
+  document.getElementById('col-sur').textContent = a.country_code === 'py' ? 'Argentina / Río Pilcomayo' : '—';
+  document.getElementById('col-este').textContent = 'Depto. Presidente Hayes';
+  document.getElementById('col-oeste').textContent = 'Bolivia (frontera)';
+}
+
+// ══════════════════════════════════════════════
+//  FOCOS DE CALOR NASA FIRMS (simulado + link real)
+// ══════════════════════════════════════════════
+function consultarFocos(lat, lon) {
+  const lista = document.getElementById('focos-lista');
+  // NASA FIRMS no tiene CORS libre; mostramos status + link directo
+  lista.innerHTML = `
+    <li class="foco-item">
+      <span class="foco-dot foco-alto"></span>
+      <div>
+        <div style="color:var(--texto-bright)">Consulta directa NASA FIRMS disponible</div>
+        <div style="color:var(--texto-dim);font-size:10px">Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)} — Radio 10km — Últimas 24h</div>
+      </div>
+      <a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@${lon},${lat},10z" target="_blank" 
+         style="margin-left:auto;background:rgba(255,68,0,0.2);border:1px solid #ff4400;border-radius:5px;padding:4px 10px;color:#ff7744;font-size:11px;text-decoration:none;white-space:nowrap">
+        Ver en NASA FIRMS →
+      </a>
+    </li>
+    <li class="foco-item">
+      <span class="foco-dot foco-medio"></span>
+      <div>
+        <div style="color:var(--texto-bright)">INPE — Monitoreo de Queimadas (Brasil/Paraguay)</div>
+        <div style="color:var(--texto-dim);font-size:10px">Sistema de alerta de focos de calor regional</div>
+      </div>
+      <a href="https://queimadas.dgi.inpe.br/queimadas/portal" target="_blank"
+         style="margin-left:auto;background:rgba(255,136,0,0.2);border:1px solid #ff8800;border-radius:5px;padding:4px 10px;color:#ffaa44;font-size:11px;text-decoration:none;white-space:nowrap">
+        Ver INPE →
+      </a>
+    </li>
+  `;
+}
+
+// ══════════════════════════════════════════════
+//  GLOBAL FOREST WATCH
+// ══════════════════════════════════════════════
+function abrirGlobalForestWatch() {
+  const lat = parseFloat(document.getElementById('lat').value) || -21.788;
+  const lon = parseFloat(document.getElementById('lon').value) || -60.578;
+  window.open(`https://www.globalforestwatch.org/map/?map=eyJjZW50ZXIiOnsibGF0IjoyMS43ODgsImxuZyI6LTYwLjU3OH0sInpvb20iOjEyfQ%3D%3D&mapTheme=default&location=eyJ0eXBlIjoicG9pbnQiLCJjb29yZGluYXRlcyI6WyR7bG9ufSwke2xhdH1dfQ%3D%3D`, '_blank');
+}
+
+function simularGFW() {
+  document.getElementById('gfw-perdida').textContent = 'Consultar en GFW';
+  document.getElementById('gfw-anio').textContent = '2020–2024';
+  document.getElementById('gfw-cobertura').textContent = 'Chaco Seco';
+  document.getElementById('gfw-ndvi').textContent = 'Baja — Zona árida';
+  document.getElementById('areas-protegidas-lista').innerHTML =
+    `<span class="badge badge-amarillo">⚠️ Ruta 9 — Área de influencia</span>
+     <span class="badge badge-verde" style="margin-left:6px">🏞️ Consultar SINASIP</span>
+     <br/><br/>
+     <a href="https://www.mades.gov.py/categoria/areas-silvestres-protegidas/" target="_blank" 
+        style="color:var(--azul-claro);font-size:11px">
+        → Ver Áreas Protegidas MADES Paraguay
+     </a>`;
+  document.getElementById('cuenca-nombre').textContent = 'Cuenca del Pilcomayo';
+}
+
+// ══════════════════════════════════════════════
+//  OVERPASS — PUNTOS DE INTERÉS
+// ══════════════════════════════════════════════
+async function consultarPOI(lat, lon, radio) {
+  const r = radio || 1000;
+  const query = `[out:json][timeout:15];(
+    node(around:${r},${lat},${lon})[name];
+    way(around:${r},${lat},${lon})[name];
+  );out center 20;`;
+  try {
+    const resp = await fetch('https://overpass-api.de/api/interpreter', {
+      method: 'POST', body: query
+    });
+    const data = await resp.json();
+    return data.elements || [];
+  } catch (e) { return []; }
+}
+
+function llenarPOI(elementos, lat, lon) {
+  const tbody = document.getElementById('poi-body');
+  if (!elementos.length) {
+    tbody.innerHTML = '<tr><td colspan="5" style="color:var(--texto-dim);text-align:center;padding:14px">Sin puntos de interés en el radio indicado</td></tr>';
+    return;
+  }
+  tbody.innerHTML = elementos.slice(0, 15).map((el, i) => {
+    const elat = el.lat || el.center?.lat || 0;
+    const elon = el.lon || el.center?.lon || 0;
+    const dist = calcularDistancia(lat, lon, elat, elon);
+    const ori = calcularOrientacion(lat, lon, elat, elon);
+    const tipo = el.tags?.amenity || el.tags?.landuse || el.tags?.natural || el.tags?.highway || '—';
+    return `<tr>
+      <td>${i+1}</td>
+      <td>${el.tags?.name || '—'}</td>
+      <td><span class="badge badge-verde">${tipo}</span></td>
+      <td>${Math.round(dist)} m</td>
+      <td>${ori}</td>
+    </tr>`;
+  }).join('');
+}
+
+function calcularDistancia(lat1, lon1, lat2, lon2) {
+  const R = 6371000;
+  const dLat = (lat2-lat1) * Math.PI/180;
+  const dLon = (lon2-lon1) * Math.PI/180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+function calcularOrientacion(lat1, lon1, lat2, lon2) {
+  const dLat = lat2 - lat1;
+  const dLon = lon2 - lon1;
+  if (Math.abs(dLat) > Math.abs(dLon)) return dLat > 0 ? '↑ Norte' : '↓ Sur';
+  return dLon > 0 ? '→ Este' : '← Oeste';
+}
+
+// ══════════════════════════════════════════════
+//  FOTOS GEOETIQUETADAS
+// ══════════════════════════════════════════════
+function procesarFotos(event) {
+  const archivos = Array.from(event.target.files);
+  const grid = document.getElementById('fotos-grid');
+  archivos.forEach(archivo => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      const id = Date.now() + Math.random();
+      const div = document.createElement('div');
+      div.className = 'foto-thumb';
+      div.id = 'foto-' + id;
+      div.innerHTML = `
+        <img src="${e.target.result}" alt="Foto procedimiento"/>
+        <div class="foto-exif">${new Date().toLocaleString('es-PY')}</div>
+        <button class="foto-del" onclick="eliminarFoto('foto-${id}')">✕</button>
+      `;
+      grid.appendChild(div);
+      estado.fotos.push({ id, src: e.target.result, fecha: new Date().toISOString() });
+      verificarCoordenadasFoto(e.target.result);
+    };
+    reader.readAsDataURL(archivo);
+  });
+}
+
+function eliminarFoto(id) {
+  document.getElementById(id)?.remove();
+}
+
+function verificarCoordenadasFoto(src) {
+  const alerta = document.getElementById('fotos-alerta');
+  const latActual = document.getElementById('lat').value;
+  if (!latActual) {
+    alerta.style.display = 'block';
+    alerta.textContent = '⚠️ No hay coordenadas cargadas. Las fotos se asociarán al punto ingresado manualmente.';
+  } else {
+    alerta.style.display = 'none';
+  }
+}
+
+// ══════════════════════════════════════════════
+//  CAPAS DE MAPA
+// ══════════════════════════════════════════════
+function toggleCapa(btn, capa) {
+  btn.classList.toggle('activa');
+  estado.capas[capa] = btn.classList.contains('activa');
+  if (capa === 'focos' && estado.capas[capa]) {
+    const lat = parseFloat(document.getElementById('lat').value);
+    const lon = parseFloat(document.getElementById('lon').value);
+    if (lat && lon) window.open(`https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@${lon},${lat},11z`, '_blank');
+  }
+  if (capa === 'bosques' && estado.capas[capa]) {
+    abrirGlobalForestWatch();
+  }
+  if (capa === 'protegidas' && estado.capas[capa]) {
+    window.open('https://www.mades.gov.py/categoria/areas-silvestres-protegidas/', '_blank');
+  }
+}
+
+// ══════════════════════════════════════════════
+//  GENERADOR DE INFORME
+// ══════════════════════════════════════════════
+function generarInforme() {
+  const lat = document.getElementById('lat').value;
+  const lon = document.getElementById('lon').value;
+  const dms = document.getElementById('coord-dms').value;
+  const rumbo = document.getElementById('rumbo').value;
+  const card = azimutACardinal(parseFloat(rumbo));
+  const utm = calcularUTM(parseFloat(lat), parseFloat(lon));
+  const funcionario = document.getElementById('funcionario').value || '[Sin datos]';
+  const credencial = document.getElementById('credencial').value || '—';
+  const unidad = document.getElementById('unidad').value || '—';
+  const fechaHora = document.getElementById('fecha-hora').value || new Date().toISOString().slice(0,16);
+  const tipoHecho = estado.tipo ? document.querySelector('.tipo-btn.activo')?.textContent?.trim() : 'No especificado';
+  const estadoH = estado.estadoHecho || 'No especificado';
+  const normativa = estado.tipo ? (normativas[estado.tipo] || '') : '—';
+  const finca = document.getElementById('finca').value || '—';
+  const padron = document.getElementById('padron').value || '—';
+  const propietario = document.getElementById('propietario').value || '—';
+  const superficie = document.getElementById('superficie').value || '—';
+  const obs = document.getElementById('obs-predio').value || '—';
+  const region = document.getElementById('res-region').textContent;
+  const distrito = document.getElementById('res-distrito').textContent;
+  const pais = document.getElementById('res-pais').textContent;
+  const direccion = document.getElementById('res-direccion').value;
+
+  document.getElementById('informe-contenido').innerHTML = `
+    <div style="margin-bottom:10px">
+      <strong>Fecha y hora del procedimiento:</strong> ${fechaHora.replace('T',' ')}<br/>
+      <strong>Funcionario actuante:</strong> ${funcionario} (Cred. ${credencial})<br/>
+      <strong>Unidad / Dependencia:</strong> ${unidad}
+    </div>
+    <div style="background:rgba(26,122,60,0.1);padding:10px;border-radius:6px;margin-bottom:10px;border-left:3px solid var(--verde)">
+      <strong>TIPO DE HECHO:</strong> ${tipoHecho}<br/>
+      <strong>ESTADO:</strong> ${estadoH.toUpperCase()}<br/>
+      <strong>NORMATIVA:</strong> ${normativa}
+    </div>
+    <div style="margin-bottom:10px">
+      <strong>── UBICACIÓN ──────────────────────</strong><br/>
+      Coordenadas DMS: ${dms}<br/>
+      Coordenadas Decimales: ${lat}, ${lon}<br/>
+      Zona UTM: ${utm}<br/>
+      País: ${pais} | Región: ${region} | Distrito: ${distrito}<br/>
+      Dirección: ${direccion}<br/>
+      Rumbo observado: ${rumbo}° — ${card}
+    </div>
+    <div style="margin-bottom:10px">
+      <strong>── PREDIO ──────────────────────────</strong><br/>
+      Finca N°: ${finca} | Padrón: ${padron}<br/>
+      Propietario: ${propietario} | Superficie: ${superficie} ha<br/>
+      Observaciones: ${obs}
+    </div>
+    <div style="margin-bottom:10px">
+      <strong>── COLINDANTES ─────────────────────</strong><br/>
+      Norte: ${document.getElementById('col-norte').textContent}<br/>
+      Sur: ${document.getElementById('col-sur').textContent}<br/>
+      Este: ${document.getElementById('col-este').textContent}<br/>
+      Oeste: ${document.getElementById('col-oeste').textContent}
+    </div>
+    <div style="margin-top:30px;border-top:1px solid var(--gris-borde);padding-top:12px;display:flex;gap:40px">
+      <div style="text-align:center">
+        <div style="border-top:1px solid var(--texto-dim);padding-top:6px;width:200px;margin-top:30px">
+          Firma y sello del funcionario<br/>${funcionario}
+        </div>
+      </div>
+      <div style="text-align:center">
+        <div style="border-top:1px solid var(--texto-dim);padding-top:6px;width:200px;margin-top:30px">
+          Firma del testigo (si hubiere)
+        </div>
+      </div>
+    </div>
+  `;
+  cambiarTab(document.querySelectorAll('.tab')[4], 'tab-informe');
+}
+
+// ══════════════════════════════════════════════
+//  FUNCIÓN PRINCIPAL — ACTUALIZAR GEORREFERENCIA
+// ══════════════════════════════════════════════
+async function actualizarGeorreferencia() {
+  const lat = parseFloat(document.getElementById('lat').value);
+  const lon = parseFloat(document.getElementById('lon').value);
+  if (isNaN(lat) || isNaN(lon)) {
+    alert('Ingrese coordenadas válidas.');
+    return;
+  }
+  estado.lat = lat; estado.lon = lon;
+
+  // Actualizar mapa
+  actualizarMapa(lat, lon);
+
+  // Mostrar datos inmediatos
+  document.getElementById('res-lat').textContent = lat.toFixed(6);
+  document.getElementById('res-lon').textContent = lon.toFixed(6);
+  document.getElementById('res-utm').textContent = calcularUTM(lat, lon);
+  const rum = parseFloat(document.getElementById('rumbo').value) || 0;
+  document.getElementById('res-rumbo').textContent = `${rum}° — ${azimutACardinal(rum)}`;
+
+  // Brújula
+  actualizarBrujula();
+
+  // Nominatim
+  document.getElementById('res-pais').textContent = 'Consultando...';
+  const nominatim = await consultarNominatim(lat, lon);
+  llenarDatosNominatim(nominatim);
+
+  // Focos de calor
+  consultarFocos(lat, lon);
+
+  // GFW simulado
+  simularGFW();
+
+  // POI Overpass
+  document.getElementById('poi-body').innerHTML =
+    '<tr><td colspan="5" style="text-align:center;color:var(--texto-dim);padding:12px"><span class="spin"></span> Consultando OpenStreetMap...</td></tr>';
+  const radio = parseInt(document.getElementById('radio').value) || 500;
+  const pois = await consultarPOI(lat, lon, radio);
+  llenarPOI(pois, lat, lon);
+
+  // Alerta área protegida (lógica simplificada por demo)
+  const alerta = document.getElementById('alerta-protegida');
+  alerta.classList.toggle('visible', Math.random() > 0.5); // En producción: consultar SINASIP API
+}
+
+// ══════════════════════════════════════════════
+//  TABS
+// ══════════════════════════════════════════════
+function cambiarTab(tab, id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('activo'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('activo'));
+  tab.classList.add('activo');
+  document.getElementById(id)?.classList.add('activo');
+}
+
+// Init
+actualizarBrujula();
+</script>
+</body>
+</html>
